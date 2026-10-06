@@ -18,10 +18,16 @@ while True:
                     deposit_amount = float(deposit_amount)
                     break
                 except ValueError:
-                    print("Invalid input. Please enter a valid number.")
-            available_balance = available_balance + deposit_amount
-            print("Your new balance is: $", round(available_balance,2))
-            print("Thank you for using the ATM Simulator. Don't forget to take your card! \nHave a great day!")
+                    print("Invalid input. Please relogin and enter a valid number.")
+                    continue
+            if deposit_amount <= 0:
+                print("Invalid input. Please relogin and enter a positive number number")
+
+            else:
+                available_balance = available_balance + deposit_amount
+                print("Your new balance is: $", round(available_balance,2))
+                print("Thank you for using the ATM Simulator. Don't forget to take your card! \nHave a great day!")
+                break
         elif action == "3":
             pin = input("Please enter your PIN: ")
             try:
@@ -39,12 +45,12 @@ while True:
                     continue
                     
                 if withdraw_amount > available_balance:
-                    print("Insufficient funds. your current balance is $:", round(available_balance,2))
+                    print("Insufficient funds. your current balance is $:", round(available_balance,2), "please login and try again")
                 else: 
                     available_balance = available_balance - withdraw_amount
                     print("Your new balance is: $", round(available_balance,2))
                     print("Thank you for using the ATM Simulator. Don't forget to take your card! \nHave a great day!")
-                    
+                    break
             else:
                 print("Invalid PIN.")
         elif action == "4":
