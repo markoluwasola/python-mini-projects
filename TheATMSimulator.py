@@ -10,6 +10,7 @@ while True:
         if action == "1":
             print("Your current balance is $:", round(available_balance,2))
             print("Thank you for using the ATM Simulator. Don't forget to take your card! \nHave a great day!")
+            break
         elif action == "2":
             while True:
                 deposit_amount = input("How much would you like to deposit? $")
